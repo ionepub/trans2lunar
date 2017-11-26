@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>阳历日期转阴历、农历小工具</title>
+	<style type="text/css">
+		body{
+			width: 1000px;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.left{
+			width: 400px;
+			float: left;
+			height: 600px;
+		}
+		.center{
+			width: 200px;
+			float: left;
+			height: 100px;
+			margin-top: 250px;
+		}
+		.center #trans{
+			width: 120px;
+			height: 60px;
+			font-size: 18px;
+			font-family: microsoft yahei;
+			margin-left: 40px;
+		}
+		.right{
+			width: 400px;
+			float: right;
+			height: 600px;
+		}
+		#datelist, #lunarlist{
+			width: 390px;
+			height: 500px;
+			line-height: 18px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<h2>阳历日期转阴历、农历小工具</h2>
+	<form method="post" action="">
+		<div class="left">
+			<h4>请在下方输入框中输入要转换成阴历的日期，一行一个，日期格式：2017-11-11。</h4>
+			<textarea id="datelist" name="datelist"><?php echo $data;?></textarea>
+		</div>
+		<div class="center">
+			<button type="submit" id="trans">转 换</button>
+		</div>
+		<div class="right">
+			<h4>下方输入框中即为转换后的阴历日期，日期格式：2017年九月廿三</h4>
+			<textarea id="lunarlist" readonly=""><?php echo $output_str;?></textarea>
+		</div>
+	</form>
+	<script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#trans").click(function(){
+			var datelist = $("#datelist").val();
+			if(!datelist){
+				alert("没有要转换的日期数据");
+				return false;
+			}
+			return true;
+		});
+	});
+	</script>
+</body>
+</html>
